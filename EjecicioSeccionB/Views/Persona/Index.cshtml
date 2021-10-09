@@ -1,0 +1,54 @@
+﻿@model IEnumerable<EjecicioSeccionB.Models.PersonaModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+    <div class="text-center">
+        <h1 class="display-4">Principal</h1>
+    </div>
+<p>
+    <a asp-action="Personas">Create New Person</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombrePersona)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApellidoPersona)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoPersona)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombrePersona)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApellidoPersona)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Edad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstadoPersona)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CodigoPersona">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CodigoPersona">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CodigoPersona">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
